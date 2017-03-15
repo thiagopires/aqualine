@@ -13,14 +13,13 @@ Class CondominioModel extends CI_Model
  
    $query = $this->db->get();
  
-   if($query->num_rows() > 0)
-   {
-     return $query->result();
-   }
-   else
-   {
-     return false;
-   }
+   return $query->num_rows() > 0 ? $query->result() : false;
  }
+
+  function salvar($arr_data){
+    $this->db->insert('condominio', $arr_data);
+    return $this->db->insert_id();
+  }
+
 }
 ?>

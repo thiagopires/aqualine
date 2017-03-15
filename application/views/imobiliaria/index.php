@@ -16,7 +16,6 @@ echo nav();
  <h1>Imobiliárias</h1>
  <br>
 
-
 <?php if(isset($msg)) 
     echo '<p class="alert alert-success" style="padding:15px;">'.$msg.'</p>';
 ?>

@@ -182,7 +182,7 @@ if ( ! function_exists('nav'))
                                 <a href="'.site_url().'/tiposervico/index">Tipos de serviço</a>
                             </li>
                             <li>
-                                <a href="#">Usuários</a>
+                                <a href="'.site_url().'/usuario/index">Usuários</a>
                             </li>
                         </ul>
                     </li>    

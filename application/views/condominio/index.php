@@ -15,6 +15,11 @@ echo nav();
 
  <h1>Condomínios</h1>
  <br>
+
+<?php if(isset($msg))
+    echo '<p class="alert alert-success" style="padding:15px;">'.$msg.'</p>';
+?>
+
   <div class="input-group" style="float:left; width:30%;">
     <span class="input-group-addon" id="sizing-addon2">Pesquisar</span>
     <input type="text" class="form-control" id="pesquisa" placeholder="Digite para pesquisar">

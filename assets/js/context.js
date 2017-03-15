@@ -11,19 +11,12 @@ $('#pesquisa').keyup(function() {
     }).hide();
 });
 
-
-''
-
 $(function () {
   $('.datetimepicker').datetimepicker({
     locale: 'pt-br',
     format: 'DD/MM/YYYY'
   });
 });
-
-
-
-
 
 $('#estado').on('change', function(){
 	$('#cidade').html('Carregando...').removeAttr('disabled');
@@ -33,41 +26,41 @@ $('#estado').on('change', function(){
 	});
 });
 
-
-
 var ica_count = 0;
 var ic_count = 0;
 
 $('#ica-salvar').on('click',function(){
     html = '<li class="list-group-item" id="ica-' + ++ica_count +'">';
+    htmlInput = '';
 
     $('.ica').each(function(){
         id = $(this).attr('id');
         content = $(this).val();
         label = $('label[for="'+id+'"]').html();
-        html = html + '<div style="margin-right: 10px;" id="' + id + '"><strong>' + label + '</strong> ' + content + '</div>';
+        html = html + '<div style="margin-right: 10px;"><strong>' + label + '</strong> ' + content + '</div>';
+        htmlInput = htmlInput + '<input type="hidden" id="' + id + '_' + ica_count + '" name="' + id + '_' + ica_count + '" value="' + content + '" />';
         $(this).val('');
     });
 
-    html = html + '</li>';
-
-    $('#lista-ica').append(html);
+    $('#ica-count').html(ica_count);
+    $('#ica-lista').append(html).append(htmlInput).append('</li>');
     $('#ica-modal').modal('toggle');
 });
 
 $('#ic-salvar').on('click',function(){
     html = '<li class="list-group-item" id="ic-' + ++ic_count +'">';
+    htmlInput = '';
 
     $('.ic').each(function(){
         id = $(this).attr('id');
         content = $(this).val();
         label = $('label[for="'+id+'"]').html();
-        html = html + '<div style="margin-right: 10px;" id="' + id + '"><strong>' + label + '</strong> ' + content + '</div>';
+        html = html + '<div style="margin-right: 10px;"><strong>' + label + '</strong> ' + content + '</div>';
+        htmlInput = htmlInput + '<input type="hidden" id="' + id + '_' + ic_count + '" name="' + id + '_' + ic_count + '" value="' + content + '" />';
         $(this).val('');
     });
 
-    html = html + '</li>';
-
-    $('#lista-ic').append(html);
+    $('#ic-count').html(ic_count);
+    $('#ic-lista').append(html).append(htmlInput).append('</li>');
     $('#ic-modal').modal('toggle');
 });

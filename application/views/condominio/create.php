@@ -15,12 +15,14 @@ echo nav();
  <h2>Cadastro</h2>
  <br>
 
-<?php echo form_open('condominio/create/save', 'class="form-horizontal"'); ?>
+<?php echo validation_errors('<p class="alert alert-danger" style="padding:15px;">','</p>'); ?>
+
+<?php echo form_open('condominio/create', 'class="form-horizontal"'); ?>
   
   <div class="form-group">
     <label for="data-ult-servico" class="col-sm-2 control-label">Data do Último Serviço:</label>
     <div class='col-sm-2 input-group date datetimepicker'>
-      <input type='text' class="form-control" id="data-ult-servico"/>
+      <input type='text' class="form-control" id="data-ult-servico" name="data-ult-servico"/>
       <span class="input-group-addon">
           <span class="glyphicon glyphicon-calendar"></span>
       </span>
@@ -30,32 +32,32 @@ echo nav();
   <div class="form-group">
     <label for="razao-social" class="col-sm-2 control-label">Razão Social:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="razao-social" placeholder="Razão Social">
+      <input type="text" class="form-control" id="razao-social" name="razao-social" placeholder="Razão Social">
     </div>
   </div>
 
   <div class="form-group">
     <label for="nome-fantasia" class="col-sm-2 control-label">Nome Fantasia:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="nome-fantasia" placeholder="Nome Fantasia">
+      <input type="text" class="form-control" id="nome-fantasia" name="nome-fantasia" placeholder="Nome Fantasia">
     </div>
   </div>
 
   <div class="form-group">
     <label for="cnpj" class="col-sm-2 control-label">CNPJ:</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="cnpj" placeholder="CNPJ">
+      <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ">
     </div>
   </div>
 
   <div class="form-group">
     <label for="endereco" class="col-sm-2 control-label">Endereço:</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="endereco" placeholder="Endereço">
+      <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Endereço">
     </div>
     <label for="bairro" class="col-sm-1 control-label">Bairro:</label>
     <div class="col-sm-3">
-      <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+      <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro">
       <!--small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
     </div>
   </div>
@@ -80,21 +82,21 @@ echo nav();
     </div>
     <label for="cep" class="col-sm-1 control-label">Cep:</label>
     <div class="col-sm-2">
-      <input type="text" class="form-control" id="cep" placeholder="Cep">
+      <input type="text" class="form-control" id="cep" name="cep" placeholder="Cep">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="economias" class="col-sm-2 control-label">Economias:</label>
+    <label for="economia" class="col-sm-2 control-label">Economias:</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="economias" placeholder="Economias">
+      <input type="text" class="form-control" id="economia" name="economia" placeholder="Economias">
     </div>
   </div>
 
   <div class="form-group">
     <label for="imobiliaria" class="col-sm-2 control-label">Imobiliária:</label>
     <div class="col-sm-4">
-      <select id="imobiliaria" name="imobiliaria" class="form-control">
+      <select id="imobiliaria" name="imobiliaria" id="imobiliaria" class="form-control">
       <option></option>
       <?php
         foreach ($imobiliarias as $row) {
@@ -108,18 +110,18 @@ echo nav();
   <div class="form-group">
     <label for="telefone1" class="col-sm-2 control-label">Telefone:</label>
     <div class="col-sm-2">
-      <input type="text" class="form-control" id="telefone1" placeholder="Telefone 1">
+      <input type="text" class="form-control" id="telefone1" name="telefone1" placeholder="Telefone 1">
     </div>
     <label for="telefone2" class="col-sm-1 control-label">Telefone:</label>
     <div class="col-sm-2">
-      <input type="text" class="form-control" id="telefone2" placeholder="Telefone 2">
+      <input type="text" class="form-control" id="telefone2" name="telefone2" placeholder="Telefone 2">
     </div>
   </div>
 
   <div class="form-group">
     <label for="obs" class="col-sm-2 control-label">Obs:</label>
     <div class="col-sm-8">
-      <textarea class="form-control" rows="5" id="obs" placeholder="Observação"></textarea>
+      <textarea class="form-control" rows="5" id="obs" name="obs" placeholder="Observação"></textarea>
     </div>
   </div>
 
@@ -129,7 +131,8 @@ echo nav();
       <p>
         <button type="button" class="btn" data-toggle="modal" data-target="#ica-modal">Adicionar novo</button>
       </p>
-      <ul class="list-group" id="lista-ica">
+      <span class="hide" id="ica-count" name="ica-count"></span>
+      <ul class="list-group" id="ica-lista">
 
       </ul>
     </div>
@@ -145,7 +148,7 @@ echo nav();
           <div class="form-group">
             <label for="ica_descricao" class="col-sm-2 control-label">Descrição:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control ica" id="ica_descricao" placeholder="Descrição">
+              <input type="text" class="form-control ica" id="ica_descricao" name="ica_descricao" placeholder="Descrição">
             </div>
           </div>
           <div class="form-group">
@@ -159,17 +162,17 @@ echo nav();
             </div>
             <label for="ica_quantidade" class="col-sm-2 control-label">Quantidade:</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control ica" id="ica_quantidade" placeholder="Quantidade">
+              <input type="text" class="form-control ica" id="ica_quantidade" name="ica_quantidade" placeholder="Quantidade">
             </div>
           </div>
           <div class="form-group">
             <label for="ica_capacidade" class="col-sm-2 control-label">Capacidade:</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control ica" id="ica_capacidade" placeholder="Capacidade">
+              <input type="text" class="form-control ica" id="ica_capacidade" name="ica_capacidade" placeholder="Capacidade">
             </div>
             <label for="ica_metragem" class="col-sm-2 control-label">Metragem:</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control ica" id="ica_metragem" placeholder="Metragem">
+              <input type="text" class="form-control ica" id="ica_metragem" name="ica_metragem" placeholder="Metragem">
             </div>
             <div class="col-sm-1">
               <a class="btn btn-default" id="ica-salvar">Salvar</a>
@@ -180,13 +183,14 @@ echo nav();
     </div>
   </div>
 
-<div class="form-group">
+  <div class="form-group">
     <label class="col-sm-2 control-label">Informações dos Contatos</label>
     <div class="col-sm-8" style="padding-top:7px;">
       <p>
         <button type="button" class="btn" data-toggle="modal" data-target="#ic-modal">Adicionar novo</button>
       </p>
-      <ul class="list-group" id="lista-ic">
+      <span class="hide" id="ic-count" name="ic-count"></span>
+      <ul class="list-group" id="ic-lista">
 
       </ul>
     </div>

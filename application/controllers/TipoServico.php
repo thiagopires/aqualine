@@ -13,12 +13,6 @@ class TipoServico extends CI_Controller {
    		$this->load->view('tiposervico/index', $data);
 	}
 
-	public function create() {
-		$data['estados'] = $this->UfModel->listar();
-		$data['cidades'] = $this->MunicipioModel->listar();
-		$data['imobiliarias'] = $this->ImobiliariaModel->listar();
-   		$this->load->view('condominio/create', $data);
-	}
 }
 
 ?>

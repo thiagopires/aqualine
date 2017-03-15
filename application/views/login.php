@@ -16,8 +16,8 @@ echo html_header("Aqualine");
 
         <div class="loginmodal-container">
           <h1>Aqualine</h1><br>
-          <?php echo validation_errors(); ?>
-          <?php echo form_open('Verifylogin'); ?>
+          <?php echo validation_errors('<p class="alert alert-danger" style="padding:15px;">','</p>'); ?>
+          <?php echo form_open('VerifyLogin'); ?>
             <input type="text" name="usuario" id="usuario" placeholder="Usuário">
             <input type="password" name="senha" id="senha" placeholder="Senha">
             <input type="submit" name="login" class="login loginmodal-submit" value="Entrar">
