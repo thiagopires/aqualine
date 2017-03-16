@@ -30,7 +30,8 @@ var ica_count = 0;
 var ic_count = 0;
 
 $('#ica-salvar').on('click',function(){
-    html = '<li class="list-group-item" id="ica-' + ++ica_count +'">';
+    ica_count++;
+    html = '<li class="list-group-item" id="ica-' + ica_count +'">';
     htmlInput = '';
 
     $('.ica').each(function(){
@@ -42,13 +43,14 @@ $('#ica-salvar').on('click',function(){
         $(this).val('');
     });
 
-    $('#ica-count').html(ica_count);
+    $('#ica-count').attr('value',ica_count);
     $('#ica-lista').append(html).append(htmlInput).append('</li>');
     $('#ica-modal').modal('toggle');
 });
 
 $('#ic-salvar').on('click',function(){
-    html = '<li class="list-group-item" id="ic-' + ++ic_count +'">';
+    ic_count++;
+    html = '<li class="list-group-item" id="ic-' + ic_count +'">';
     htmlInput = '';
 
     $('.ic').each(function(){
@@ -60,7 +62,7 @@ $('#ic-salvar').on('click',function(){
         $(this).val('');
     });
 
-    $('#ic-count').html(ic_count);
+    $('#ic-count').attr('value',ic_count);
     $('#ic-lista').append(html).append(htmlInput).append('</li>');
     $('#ic-modal').modal('toggle');
 });

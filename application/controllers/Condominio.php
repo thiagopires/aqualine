@@ -2,14 +2,14 @@
 
 class Condominio extends CI_Controller {
 
- function __construct()
- {
-   parent::__construct();
-   $this->load->model('CondominioModel','',TRUE);
-   $this->load->model('ImobiliariaModel','',TRUE);
-   $this->load->model('UfModel','',TRUE);
-   $this->load->model('MunicipioModel','',TRUE);
- }
+	function __construct() {
+		parent::__construct();
+		$this->load->model('CondominioModel','',TRUE);
+		$this->load->model('ImobiliariaModel','',TRUE);
+		$this->load->model('UfModel','',TRUE);
+		$this->load->model('MunicipioModel','',TRUE);
+		$this->load->model('CaixaModel','',TRUE);
+	}
 
 	public function index() {
 		$data['lista'] = $this->CondominioModel->listar();
@@ -49,9 +49,8 @@ class Condominio extends CI_Controller {
 
 			$id_condominio = $this->CondominioModel->salvar($arr_data);
 
-			$n_caixas = $this->input->post('ica-count');
+			$n_caixas = intval($this->input->post('ica-count'));
 			for($i = 1; $i <= $n_caixas; $i++){
-				$arr_data = array(
 					'descricao' => $this->input->post('ica_descricao_'.$i),
 					'id_condominio' => $id_condominio,
 					'localizacao' => $this->input->post('ica_localizacao_'.$i),
@@ -59,7 +58,6 @@ class Condominio extends CI_Controller {
 					'capacidade' => $this->input->post('ica_capacidade_'.$i),
 					'metragem' => $this->input->post('ica_metragem_'.$i)
 				);
-				$this->CaixaModel->salvar($arr_data);
 			}
 
 			$data['lista'] = $this->CondominioModel->listar();

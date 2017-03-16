@@ -131,7 +131,7 @@ echo nav();
       <p>
         <button type="button" class="btn" data-toggle="modal" data-target="#ica-modal">Adicionar novo</button>
       </p>
-      <span class="hide" id="ica-count" name="ica-count"></span>
+      <input type="hidden" id="ica-count" name="ica-count" />
       <ul class="list-group" id="ica-lista">
 
       </ul>
@@ -189,7 +189,7 @@ echo nav();
       <p>
         <button type="button" class="btn" data-toggle="modal" data-target="#ic-modal">Adicionar novo</button>
       </p>
-      <span class="hide" id="ic-count" name="ic-count"></span>
+      <input type="hidden" id="ic-count" name="ic-count" />
       <ul class="list-group" id="ic-lista">
 
       </ul>

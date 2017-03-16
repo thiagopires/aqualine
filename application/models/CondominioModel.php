@@ -16,7 +16,8 @@ Class CondominioModel extends CI_Model
    return $query->num_rows() > 0 ? $query->result() : false;
  }
 
-  function salvar($arr_data){
+  function salvar($arr_data)
+  {
     $this->db->insert('condominio', $arr_data);
     return $this->db->insert_id();
   }
