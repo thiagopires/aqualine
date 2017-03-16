@@ -138,6 +138,9 @@ if ( ! function_exists('html_footer'))
 if ( ! function_exists('nav'))
 {
 	function nav(){
+      if (!$_SESSION['logged_in'])
+            redirect('/');
+      else
 		return '
 <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -215,7 +218,8 @@ if ( ! function_exists('nav'))
         <!-- /.container -->
     </nav>
 		';
-	}
+	   }
+
 }
 
 // ------------------------------------------------------------------------

@@ -26,6 +26,14 @@ $('#estado').on('change', function(){
 	});
 });
 
+$('#ck-ic-data-fim').on('click', function(){
+    if ( $(this).is(':checked') ){
+        $('#ic-data-fim').removeAttr('disabled');
+    }else{
+        $('#ic-data-fim').attr('disabled','disabled');
+    }
+});
+
 var ica_count = 0;
 var ic_count = 0;
 

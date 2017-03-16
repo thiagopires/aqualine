@@ -9,6 +9,7 @@ class Condominio extends CI_Controller {
 		$this->load->model('UfModel','',TRUE);
 		$this->load->model('MunicipioModel','',TRUE);
 		$this->load->model('CaixaModel','',TRUE);
+		$this->load->model('ContatoCondominioModel','',TRUE);
 	}
 
 	public function index() {
@@ -60,6 +61,23 @@ class Condominio extends CI_Controller {
 					'metragem' => $this->input->post('ica_metragem_'.$i)
 				);
 				$this->CaixaModel->salvar($arr_ica);
+			}
+
+			$n_contatos = intval($this->input->post('ic-count'));
+			for($i = 1; $i <= $n_contatos; $i++){
+				$arr_ic = array(
+					'nome' => $this->input->post('ic-nome_'.$i),
+					'id_condominio' => $id_condominio,
+					'apto' => $this->input->post('ic-apto_'.$i),
+					'telefone1' => $this->input->post('ic-telefone1_'.$i),
+					'telefone2' => $this->input->post('ic-telefone2_'.$i),
+					'email1' => $this->input->post('ic-email1_'.$i),
+					'email2' => $this->input->post('ic-email2_'.$i),
+					'data_inicio' => $this->input->post('ic-data-inicio_'.$i),
+					'data_fim' => (empty($this->input->post('ic-data-fim_'.$i)) ? NULL : $this->input->post('ic-data-fim_'.$i)),
+					'obs' => $this->input->post('ic-complemento_'.$i)
+				);
+				$this->ContatoCondominioModel->salvar($arr_ic);
 			}
 
 			$data['lista'] = $this->CondominioModel->listar();

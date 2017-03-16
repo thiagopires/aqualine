@@ -206,53 +206,56 @@ echo nav();
           <div class="form-group">
             <label for="ic-data-inicio" class="col-sm-1 control-label">Inicio:</label>
             <div class='col-sm-3 input-group date datetimepicker' style="float:left !important;">
-              <input type='text' class="form-control ic" id="ic-data-inicio"/>
+              <input type='text' class="form-control ic" id="ic-data-inicio" name="ic-data-inicio"/>
               <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
               </span>
             </div>
             <label for="ic-data-fim" class="col-sm-1 control-label">Fim:</label>
-            <div class='col-sm-3 input-group date datetimepicker' style="float:left !important;">
-              <input type='text' class="form-control ic" id="ic-data-fim" disabled />
+            <div class="col-sm-1 control-label">
+              <input type="checkbox" name="ck-ic-data-fim" id="ck-ic-data-fim">
+            </div>
+            <div class='col-sm-3 input-group date datetimepicker' style="float:left !important;">              
+              <input type='text' class="form-control ic" id="ic-data-fim" name="ic-data-fim" disabled />
               <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
               </span>
             </div>
             <label for="ic-complemento" class="col-sm-1 control-label">Compl.:</label>
             <div class="col-sm-2">
-              <input type="text" class="form-control ic" id="ic-complemento" placeholder="Compl.">
+              <input type="text" class="form-control ic" id="ic-complemento" name="ic-complemento" placeholder="Compl.">
             </div>
           </div>
           <div class="form-group">
             <label for="ic-nome" class="col-sm-1 control-label">Nome:</label>
             <div class="col-sm-7">
-              <input type="text" class="form-control ic" id="ic-nome" placeholder="Nome">
+              <input type="text" class="form-control ic" id="ic-nome" name="ic-nome" placeholder="Nome">
             </div>
             <label for="ic-apto" class="col-sm-1 control-label">Apto:</label>
             <div class="col-sm-2">
-              <input type="text" class="form-control ic" id="ic-apto" placeholder="Apto">
+              <input type="text" class="form-control ic" id="ic-apto" name="ic-apto" placeholder="Apto">
             </div>
           </div>
           <div class="form-group">
             <label for="ic-telefone1" class="col-sm-2 control-label">Telefone:</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control ic" id="ic-telefone1" placeholder="Telefone 1">
+              <input type="text" class="form-control ic" id="ic-telefone1" name="ic-telefone1" placeholder="Telefone 1">
             </div>
             <label for="ic-telefone2" class="col-sm-2 control-label">Telefone:</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control ic" id="ic-telefone2" placeholder="Telefone 2">
+              <input type="text" class="form-control ic" id="ic-telefone2" name="ic-telefone2" placeholder="Telefone 2">
             </div>
           </div>
           <div class="form-group">
             <label for="ic-email1" class="col-sm-2 control-label">Email:</label>
             <div class="col-sm-7">
-              <input type="text" class="form-control ic" id="ic-email1" placeholder="Email">
+              <input type="text" class="form-control ic" id="ic-email1" name"ic-email1" placeholder="Email">
             </div>
           </div>
           <div class="form-group">
             <label for="ica_metragem" class="col-sm-2 control-label">Email:</label>
             <div class="col-sm-7">
-              <input type="text" class="form-control ic" id="ic-email2" placeholder="Email">
+              <input type="text" class="form-control ic" id="ic-email2" name="ic-email2" placeholder="Email">
             </div>
             <div class="col-sm-1">
               <a class="btn btn-default" id="ic-salvar">Salvar</a>

@@ -31,7 +31,7 @@ echo nav();
 <br>
 <br>
 <br>
-  <table id="tabela" class="table table-striped table-bordered" width="100%" cellspacing="0">
+  <table id="tabela" class="table table-condensed" >
         <thead>
             <tr>
                 <th>Nome</th>
