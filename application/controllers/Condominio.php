@@ -51,6 +51,7 @@ class Condominio extends CI_Controller {
 
 			$n_caixas = intval($this->input->post('ica-count'));
 			for($i = 1; $i <= $n_caixas; $i++){
+				$arr_ica = array(
 					'descricao' => $this->input->post('ica_descricao_'.$i),
 					'id_condominio' => $id_condominio,
 					'localizacao' => $this->input->post('ica_localizacao_'.$i),
@@ -58,6 +59,7 @@ class Condominio extends CI_Controller {
 					'capacidade' => $this->input->post('ica_capacidade_'.$i),
 					'metragem' => $this->input->post('ica_metragem_'.$i)
 				);
+				$this->CaixaModel->salvar($arr_ica);
 			}
 
 			$data['lista'] = $this->CondominioModel->listar();
