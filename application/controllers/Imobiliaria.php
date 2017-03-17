@@ -14,6 +14,13 @@ class Imobiliaria extends CI_Controller {
    		$this->load->view('imobiliaria/index', $data);
 	}
 
+	public function update($id){
+		$data['row'] = $this->ImobiliariaModel->listarPorId($id);
+		$data['estados'] = $this->UfModel->listar();
+		$data['cidades'] = $this->MunicipioModel->listarPorUf($data['row']->id_uf);
+		$this->load->view('imobiliaria/update', $data);
+	}
+
 	public function create(){		
 		//form-validation
 		$this->load->library('form_validation');

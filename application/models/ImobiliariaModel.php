@@ -19,5 +19,17 @@ Class ImobiliariaModel extends CI_Model
     $this->db->insert('imobiliaria', $arr_data);
   }
 
+  function listarPorId($id) {
+   $this->db->select('i.*, m.nome nome_municipio, u.nome nome_uf');
+   $this->db->from('imobiliaria i');
+   $this->db->join('municipio m', 'i.id_municipio = m.id', 'left');
+   $this->db->join('uf u', 'i.id_uf = u.id', 'left');
+   $this->db->where('i.id', $id);
+
+   $query = $this->db->get();
+
+   return $query->num_rows() > 0 ? $query->row(0) : false;
+  }
+
 }
 ?>

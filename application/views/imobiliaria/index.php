@@ -46,6 +46,7 @@ echo nav();
                 <th>Fax</th>
                 <th>Email 1</th>
                 <th>Email 2</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -64,7 +65,11 @@ echo nav();
                 <td>'.$linha->fax.'</td>
                 <td>'.$linha->email1.'</td>
                 <td>'.$linha->email2.'</td>
-                <td><a href="#/'.$linha->id.'">Editar</a><br><a href="#/'.$linha->id.'">Excluir</a></td>
+                <td>
+                    <a href="'.site_url().'/imobiliaria/view/'.$linha->id.'"class="btn btn-sm btn-default" aria-label="Visualizar"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                    <a href="'.site_url().'/imobiliaria/update/'.$linha->id.'" class="btn btn-sm btn-default" aria-label="Editar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                    <a href="'.site_url().'/imobiliaria/delete/'.$linha->id.'"class="btn btn-sm btn-default" aria-label="Excluir"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                </td>
             </tr>
             ';
           } ?>
