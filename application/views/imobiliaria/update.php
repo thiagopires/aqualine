@@ -20,6 +20,13 @@ echo nav();
 <?php echo form_open('imobiliaria/create', 'class="form-horizontal"'); ?>
   
   <div class="form-group">
+    <label for="id" class="col-sm-2 control-label">ID:</label>
+    <div class="col-sm-1">
+      <input type="text" class="form-control" value="<?php echo $row->id; ?>">
+    </div>
+  </div>
+
+  <div class="form-group">
     <label for="nome" class="col-sm-2 control-label">Nome:</label>
     <div class="col-sm-8">
       <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" value="<?php echo $row->nome; ?>">
@@ -107,17 +114,17 @@ echo nav();
     </div>
   </div>
 
+  <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $row->id; ?>">
+
   <br />
   <div class="text-center">
-    <button type="reset" class="btn btn-danger">Limpar</button>
+    <button type="button"onClick="history.back()" class="btn btn-default">Voltar</button>
     <button type="submit" class="btn btn-success">Salvar</button>
   </div>
 </form>
 
 </div>
 
-
-  
 <?php
     echo html_footer(); 
 ?>

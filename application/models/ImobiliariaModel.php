@@ -14,9 +14,18 @@ Class ImobiliariaModel extends CI_Model
    return $query->num_rows() > 0 ? $query->result() : false;
   }
 
-  function salvar($arr_data)
-  {
+  function salvar($arr_data) {
     $this->db->insert('imobiliaria', $arr_data);
+  }
+
+  function atualizar($id, $arr_data) {
+    $this->db->where('id', $id);
+    $this->db->update('imobiliaria', $arr_data);
+  }
+
+  function excluir($id) {
+    $this->db->where('id', $id);
+    $this->db->delete('imobiliaria');
   }
 
   function listarPorId($id) {
