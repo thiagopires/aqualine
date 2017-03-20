@@ -22,7 +22,7 @@ echo nav();
   <div class="form-group">
     <label for="id" class="col-sm-2 control-label">ID:</label>
     <div class="col-sm-1">
-      <input type="text" class="form-control" value="<?php echo $row->id; ?>">
+      <input type="text" class="form-control" value="<?php echo $row->id; ?>" disabled>
     </div>
   </div>
 
@@ -118,7 +118,7 @@ echo nav();
 
   <br />
   <div class="text-center">
-    <button type="button"onClick="history.back()" class="btn btn-default">Voltar</button>
+    <a href="<?php echo site_url('/imobiliaria/index'); ?>" class="btn btn-default">Voltar</a>
     <button type="submit" class="btn btn-success">Salvar</button>
   </div>
 </form>

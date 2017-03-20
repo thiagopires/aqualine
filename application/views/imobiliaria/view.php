@@ -15,11 +15,7 @@ echo nav();
  <h2>Visualizar</h2>
  <br>
 
- <style>
-  .control-label{padding-top:0 !important;}
- </style>
-
-<?php echo form_open('', 'class="form-horizontal"'); ?>
+<?php echo form_open('', 'class="form-horizontal view"'); ?>
   
   <div class="form-group">
     <label for="nome" class="col-sm-2 control-label">Nome:</label>
@@ -108,6 +104,11 @@ echo nav();
     </div>
   </div>
 
+<br />
+<div class="text-center">
+    <a href="<?php echo site_url('/imobiliaria/index'); ?>" class="btn btn-default">Voltar</a>
+    <a href="<?php echo site_url('/imobiliaria/update/'.$row->id); ?>" class="btn btn-success">Editar</a>
+  </div>
 </form>
 
 </div>

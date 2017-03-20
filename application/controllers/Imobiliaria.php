@@ -73,8 +73,8 @@ class Imobiliaria extends CI_Controller {
 				$data['msg'] = 'Registro atualizado com sucesso.';
 			}
 			
-			//$data['lista'] = $this->ImobiliariaModel->listar();			
-			//$this->load->view('imobiliaria/index', $data);
+			$data['lista'] = $this->ImobiliariaModel->listar();			
+			$this->load->view('imobiliaria/index', $data);
         }
 	}
 
